@@ -107,6 +107,7 @@ const handleNewNoteView = (e) => {
 };
 
 const handleRenderSaveBtn = () => {
+console.log("Render btn")
   if (!noteTitle.value.trim() || !noteText.value.trim()) {
     hide(saveNoteBtn);
   } else {
@@ -168,12 +169,7 @@ const renderNoteList = async (notes) => {
 };
 
 // Gets notes from the db and renders them to the sidebar
-const getAndRenderNotes = () => {   
-    getNotes()
-        .then((res) => { 
-          renderNoteList(res);
-        });
-      }
+const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
